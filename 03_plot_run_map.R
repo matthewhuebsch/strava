@@ -16,7 +16,7 @@ lat_max <- -38.1
 # Create plot
 p <- ggplot() +
   geom_path(aes(lon, lat, group = id),
-            data %>% filter(lon > lon_min, lon < lon_max, lat < lat_min, lat > lat_max),
+            data %>% filter(lon > lon_min, lon < lon_max, lat < abs(lat_max), lat > abs(lat_min)),
             alpha = 0.3, size = 0.3, lineend = "round") +
   coord_equal() +
   theme_blankcanvas(margin_cm = 0)
