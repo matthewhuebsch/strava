@@ -49,6 +49,6 @@ data <- paste("data/", list.files(path = "data/", pattern = "*.gpx"), sep = "") 
   map_df(process_gpx, .id = "id") %>%
   mutate(id = as.integer(id))
 
-dir.create("processed")
+if (!dir.exists("processed")) { dir.create("processed") }
 # Write data to file
 saveRDS(data, "processed/data.RDS")
